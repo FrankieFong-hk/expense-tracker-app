@@ -1,13 +1,13 @@
 export interface Transaction {
   id: string;
   title: string;
-  amount: number;
+  amount: string;
   category: string;
-  createdAt: string;
+  created_at: string;
 }
 
 export interface TransactionSummary {
-  balance: number;
-  income: number;
-  expense: number;
+  balance: string;
+  income: string;
+  expense: string;
 }
