@@ -35,10 +35,14 @@ export default function SignUpScreen() {
       // Set 'pendingVerification' to true to display second form
       // and capture OTP code
       setPendingVerification(true);
-    } catch (err) {
-      // See https://clerk.com/docs/custom-flows/error-handling
-      // for more info on error handling
-      console.error(JSON.stringify(err, null, 2));
+    } catch (err: any) {
+      if (err.errors?.[0]?.code === "form_identifier_exists") {
+        setError("That email address is already in use. Please try another.");
+      } else if (err.errors?.[0]?.code === "form_password_length_too_short") {
+        setError("Password must be at least 8 characters long.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -103,7 +107,7 @@ export default function SignUpScreen() {
       contentContainerStyle={{ flexGrow: 1 }}
       enableOnAndroid={true}
       enableAutomaticScroll={true}
-      extraScrollHeight={20}
+      extraScrollHeight={30}
     >
       <View style={styles.container}>
         <Image
