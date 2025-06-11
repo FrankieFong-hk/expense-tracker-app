@@ -3,8 +3,7 @@
 import { useCallback, useState } from "react";
 import { Transaction, TransactionSummary } from "../../types/transactions";
 import { Alert } from "react-native";
-
-const API_BASE_URL = "https://expense-tracker-app-six-gamma.vercel.app/api";
+import { API_BASE_URL } from "../../constants/api";
 
 export const useTransactions = (userId: string) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
