@@ -13,7 +13,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://httfong-expense-tracker-app.expo.app"
+          "value": "https://expense-tracker-app-dd1250.expo.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
