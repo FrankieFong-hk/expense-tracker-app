@@ -5,20 +5,7 @@ import { styles } from "@/assets/styles/home.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/Colors";
 import { formatDate } from "@/lib/utils";
-
-const CATEGORY_ICONS: Record<string, ComponentProps<typeof Ionicons>["name"]> =
-  {
-    "Food & Drinks": "fast-food",
-    Transportation: "car",
-    Shopping: "cart",
-    Entertainment: "ticket",
-    "Health & Fitness": "medkit",
-    Education: "school",
-    Utilities: "home",
-    Income: "cash",
-    Bills: "receipt",
-    Others: "help-circle-outline",
-  };
+import { CATEGORIES } from "@/constants/categories";
 
 const TransactionItem = ({
   item,
@@ -28,7 +15,9 @@ const TransactionItem = ({
   onDelete: (id: string) => void;
 }) => {
   const isIncome = parseFloat(item.amount) > 0;
-  const iconName = CATEGORY_ICONS[item.category] || "pricetag-outline";
+  const iconName =
+    CATEGORIES.find((category) => category.id === item.category)?.icon ||
+    "pricetag-outline";
 
   return (
     <View style={styles.transactionCard} key={item.id}>

@@ -13,7 +13,7 @@ export async function initDB() {
       title VARCHAR(255) NOT NULL,
       amount DECIMAL(10, 2) NOT NULL,
       category VARCHAR(255) NOT NULL,
-      created_at DATE NOT NULL DEFAULT CURRENT_DATE
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
       )`;
 
     // DECIMAL(10, 2) means 10 digits in total, 2 after the decimal point
